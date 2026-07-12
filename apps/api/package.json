@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.3.0",
-    "@itinerary-plan/shared": "*",
+    "@itinerary-plan/shared": "workspace:*",
     "@trpc/server": "^11.18.0",
     "drizzle-orm": "^0.45.2",
     "fastify": "^5.10.0",

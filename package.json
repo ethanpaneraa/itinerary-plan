@@ -1,8 +1,4 @@
 {
   "name": "itinerary-plan",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "private": true
 }
