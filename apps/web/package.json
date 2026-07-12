@@ -12,10 +12,17 @@
   },
   "dependencies": {
     "@itinerary-plan/shared": "workspace:*",
+    "@tanstack/react-query": "^5.101.2",
+    "@tanstack/react-router": "^1.170.17",
+    "@trpc/client": "^11.18.0",
+    "@trpc/tanstack-react-query": "^11.18.0",
+    "better-auth": "^1.6.23",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@itinerary-plan/api": "workspace:*",
+    "@tanstack/router-plugin": "^1.168.19",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",

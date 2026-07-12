@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Itinerary Plan",
+    "slug": "itinerary-plan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mobile",
+    "scheme": "itineraryplan",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
