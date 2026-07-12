@@ -1,4 +1,7 @@
 {
   "name": "itinerary-plan",
-  "private": true
+  "private": true,
+  "scripts": {
+    "test": "pnpm -r --if-present run test"
+  }
 }
