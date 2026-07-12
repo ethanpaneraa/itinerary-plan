@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { trpc } from "../lib/trpc";
 
-export const Route = createFileRoute("/trips")({
+export const Route = createFileRoute("/trips/")({
   component: Trips,
 });
 
@@ -52,8 +52,10 @@ export function Trips() {
       <ul>
         {tripsQuery.data?.map((trip) => (
           <li key={trip.id}>
-            {trip.name} — {trip.destination} ({trip.startDate.slice(0, 10)} to{" "}
-            {trip.endDate.slice(0, 10)})
+            <Link to="/trips/$tripId" params={{ tripId: trip.id }}>
+              {trip.name} — {trip.destination} ({trip.startDate.slice(0, 10)} to{" "}
+              {trip.endDate.slice(0, 10)})
+            </Link>
           </li>
         ))}
       </ul>

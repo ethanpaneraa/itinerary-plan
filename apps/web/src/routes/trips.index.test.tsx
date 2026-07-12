@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -5,6 +6,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const listMock = vi.fn();
 const createMutateMock = vi.fn();
+
+vi.mock("@tanstack/react-router", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@tanstack/react-router")>();
+  return {
+    ...actual,
+    Link: ({ children }: { children: ReactNode }) => <a href="#">{children}</a>,
+  };
+});
 
 vi.mock("../lib/trpc", () => ({
   trpc: {
@@ -29,7 +38,7 @@ vi.mock("../lib/trpc", () => ({
   },
 }));
 
-const { Trips } = await import("./trips");
+const { Trips } = await import("./trips.index");
 
 function renderWithQueryClient() {
   const queryClient = new QueryClient({

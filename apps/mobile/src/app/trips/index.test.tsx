@@ -27,7 +27,7 @@ jest.mock("@/lib/trpc", () => ({
   },
 }));
 
-const TripsScreen = require("./trips").default;
+const TripsScreen = require("./index").default;
 
 async function renderWithQueryClient() {
   const queryClient = new QueryClient({

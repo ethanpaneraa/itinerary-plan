@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FlatList, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { ThemedText } from '@/components/themed-text';
@@ -55,12 +56,16 @@ export default function TripsScreen() {
           !tripsQuery.isLoading ? <ThemedText>No trips yet.</ThemedText> : null
         }
         renderItem={({ item }) => (
-          <View style={styles.tripRow}>
-            <ThemedText type="smallBold">{item.name}</ThemedText>
-            <ThemedText type="small">
-              {item.destination} ({item.startDate.slice(0, 10)} to {item.endDate.slice(0, 10)})
-            </ThemedText>
-          </View>
+          <Link href={`/trips/${item.id}`} asChild>
+            <TouchableOpacity testID={`trip-row-${item.id}`}>
+              <View style={styles.tripRow}>
+                <ThemedText type="smallBold">{item.name}</ThemedText>
+                <ThemedText type="small">
+                  {item.destination} ({item.startDate.slice(0, 10)} to {item.endDate.slice(0, 10)})
+                </ThemedText>
+              </View>
+            </TouchableOpacity>
+          </Link>
         )}
       />
 
