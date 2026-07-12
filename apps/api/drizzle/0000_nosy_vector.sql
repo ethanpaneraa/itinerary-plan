@@ -1,4 +1,4 @@
-CREATE TABLE "itinerary_items" (
+CREATE TABLE "itinerary_plan_itinerary_items" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"trip_id" uuid NOT NULL,
 	"title" text NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE "itinerary_items" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "trips" (
+CREATE TABLE "itinerary_plan_trips" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"owner_id" text NOT NULL,
 	"name" text NOT NULL,
@@ -19,4 +19,4 @@ CREATE TABLE "trips" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "itinerary_items" ADD CONSTRAINT "itinerary_items_trip_id_trips_id_fk" FOREIGN KEY ("trip_id") REFERENCES "public"."trips"("id") ON DELETE cascade ON UPDATE no action;
+ALTER TABLE "itinerary_plan_itinerary_items" ADD CONSTRAINT "itinerary_plan_itinerary_items_trip_id_itinerary_plan_trips_id_fk" FOREIGN KEY ("trip_id") REFERENCES "public"."itinerary_plan_trips"("id") ON DELETE cascade ON UPDATE no action;

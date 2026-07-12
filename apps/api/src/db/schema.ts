@@ -1,6 +1,7 @@
 import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { tableName } from "./constants.js";
 
-export const trips = pgTable("trips", {
+export const trips = pgTable(tableName("trips"), {
   id: uuid("id").primaryKey().defaultRandom(),
   ownerId: text("owner_id").notNull(),
   name: text("name").notNull(),
@@ -12,7 +13,7 @@ export const trips = pgTable("trips", {
     .notNull(),
 });
 
-export const itineraryItems = pgTable("itinerary_items", {
+export const itineraryItems = pgTable(tableName("itinerary_items"), {
   id: uuid("id").primaryKey().defaultRandom(),
   tripId: uuid("trip_id")
     .references(() => trips.id, { onDelete: "cascade" })

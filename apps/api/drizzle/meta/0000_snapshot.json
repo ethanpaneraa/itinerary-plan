@@ -1,11 +1,11 @@
 {
-  "id": "3b45f233-6608-4e85-bf5e-34154afa56d7",
+  "id": "b798cf28-ac49-4f43-9c5a-9dc4acb3363b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.itinerary_items": {
-      "name": "itinerary_items",
+    "public.itinerary_plan_itinerary_items": {
+      "name": "itinerary_plan_itinerary_items",
       "schema": "",
       "columns": {
         "id": {
@@ -61,10 +61,10 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "itinerary_items_trip_id_trips_id_fk": {
-          "name": "itinerary_items_trip_id_trips_id_fk",
-          "tableFrom": "itinerary_items",
-          "tableTo": "trips",
+        "itinerary_plan_itinerary_items_trip_id_itinerary_plan_trips_id_fk": {
+          "name": "itinerary_plan_itinerary_items_trip_id_itinerary_plan_trips_id_fk",
+          "tableFrom": "itinerary_plan_itinerary_items",
+          "tableTo": "itinerary_plan_trips",
           "columnsFrom": [
             "trip_id"
           ],
@@ -81,8 +81,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.trips": {
-      "name": "trips",
+    "public.itinerary_plan_trips": {
+      "name": "itinerary_plan_trips",
       "schema": "",
       "columns": {
         "id": {
