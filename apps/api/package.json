@@ -16,6 +16,7 @@
     "@fastify/cors": "^11.3.0",
     "@itinerary-plan/shared": "workspace:*",
     "@trpc/server": "^11.18.0",
+    "better-auth": "^1.6.23",
     "drizzle-orm": "^0.45.2",
     "fastify": "^5.10.0",
     "postgres": "^3.4.9",

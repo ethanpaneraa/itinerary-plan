@@ -1,5 +1,42 @@
 import { describe, expect, it } from "vitest";
-import { createItineraryItemSchema, itineraryItemSchema } from "./schemas";
+import {
+  createItineraryItemSchema,
+  createTripSchema,
+  itineraryItemSchema,
+  tripSchema,
+} from "./schemas";
+
+describe("tripSchema", () => {
+  const valid = {
+    id: "b3f1e2b0-5c2a-4b8a-9e3a-0f1a2b3c4d5e",
+    ownerId: "user_123",
+    name: "Mexico City",
+    destination: "Mexico City, Mexico",
+    startDate: "2026-08-15T00:00:00.000Z",
+    endDate: "2026-08-22T00:00:00.000Z",
+  };
+
+  it("accepts a valid trip", () => {
+    expect(tripSchema.parse(valid)).toEqual(valid);
+  });
+
+  it("rejects an empty destination", () => {
+    expect(() => tripSchema.parse({ ...valid, destination: "" })).toThrow();
+  });
+});
+
+describe("createTripSchema", () => {
+  it("omits id and ownerId from the required fields", () => {
+    const withoutIdOrOwner = {
+      name: "Mexico City",
+      destination: "Mexico City, Mexico",
+      startDate: "2026-08-15T00:00:00.000Z",
+      endDate: "2026-08-22T00:00:00.000Z",
+    };
+
+    expect(() => createTripSchema.parse(withoutIdOrOwner)).not.toThrow();
+  });
+});
 
 describe("itineraryItemSchema", () => {
   const valid = {
